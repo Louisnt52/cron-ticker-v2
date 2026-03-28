@@ -1,4 +1,4 @@
-const { multiply, isEven, getGreeting, divide } = require('../tasks/math');
+const { multiply, isEven, getGreeting, divide, sum } = require('../tasks/math');
 
 describe('multiply', () => {
 
@@ -64,6 +64,26 @@ describe('divide', () => {
 
     test('debe lanzar error al dividir entre cero', () => {
         expect(() => divide(10, 0)).toThrow('No se puede dividir entre cero');
+    });
+
+});
+
+describe('sum', () => {
+
+    test('debe sumar dos números positivos', () => {
+        expect(sum(3, 4)).toBe(7);
+    });
+
+    test('debe sumar con número negativo', () => {
+        expect(sum(-2, 5)).toBe(3);
+    });
+
+    test('debe sumar cero', () => {
+        expect(sum(0, 10)).toBe(10);
+    });
+
+    test('debe lanzar error si los argumentos no son números', () => {
+        expect(() => sum('a', 3)).toThrow('Los argumentos deben ser números');
     });
 
 });
